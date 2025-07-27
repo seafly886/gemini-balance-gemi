@@ -5,7 +5,7 @@ WORKDIR /app
 # 复制所需文件到容器中
 COPY ./requirements.txt /app
 COPY ./VERSION /app
-COPY ./.env /app/.env
+# COPY ./.env /app/.env.exaple
 
 # 安装依赖
 RUN pip install --no-cache-dir -r requirements.txt
