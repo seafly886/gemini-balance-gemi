@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  gemini-balance:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      # 将数据目录挂载为卷，确保数据持久化
+      - ./data:/app/data
+    environment:
+      # 确保使用SQLite数据库
+      - DATABASE_TYPE=sqlite
+      - SQLITE_DATABASE=gemini_balance.db
+    restart: unless-stopped
